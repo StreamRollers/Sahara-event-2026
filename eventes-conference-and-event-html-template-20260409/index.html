@@ -589,77 +589,84 @@
                                         <span class="price-currency">$</span><span class="price-amount">1,000</span><span class="price-per"> / guest</span>
                                     </div>
                                     <p class="rsvp-note">Limited to approximately 100 guests</p>
-                                </div>
-                                <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="sahara-rsvp-form" id="rsvp-form">
-                                    <input type="hidden" name="form-name" value="rsvp">
-                                    <p style="display:none"><label>Don't fill this: <input name="bot-field"></label></p>
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="firstName">First Name <span class="required">*</span></label>
-                                            <input type="text" id="firstName" name="first-name" class="form-control sahara-input" required placeholder="First Name">
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="lastName">Last Name <span class="required">*</span></label>
-                                            <input type="text" id="lastName" name="last-name" class="form-control sahara-input" required placeholder="Last Name">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="email">Email Address <span class="required">*</span></label>
-                                            <input type="email" id="email" name="email" class="form-control sahara-input" required placeholder="Email Address">
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="phone">Phone Number</label>
-                                            <input type="tel" id="phone" name="phone" class="form-control sahara-input" placeholder="Phone Number">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="company">Company / Brand</label>
-                                            <input type="text" id="company" name="company" class="form-control sahara-input" placeholder="Company or Brand Name">
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="guests">Number of Guests <span class="required">*</span></label>
-                                            <select id="guests" name="guests" class="form-control sahara-input" required>
-                                                <option value="">Select</option>
-                                                <option value="1">1 Guest</option>
-                                                <option value="2">2 Guests</option>
-                                                <option value="3">3 Guests</option>
-                                                <option value="4">4 Guests</option>
-                                                <option value="5">5+ Guests</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="discount">Discount Code</label>
-                                            <input type="text" id="discount" name="discount-code" class="form-control sahara-input" placeholder="Enter discount code">
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="role">Your Role</label>
-                                            <select id="role" name="role" class="form-control sahara-input">
-                                                <option value="">Select your role</option>
-                                                <option value="Influencer/Creator">Influencer / Creator</option>
-                                                <option value="Casino Executive">Casino Executive</option>
-                                                <option value="Sponsor/Brand">Sponsor / Brand</option>
-                                                <option value="Media/Press">Media / Press</option>
-                                                <option value="Industry Professional">Industry Professional</option>
-                                                <option value="Other">Other</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12 mb-3">
-                                            <label for="message">Special Requests or Dietary Requirements</label>
-                                            <textarea id="message" name="message" class="form-control sahara-input" rows="3" placeholder="Any special requests or dietary requirements..."></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12 text-center mt-3">
-                                            <button type="submit" class="btn sahara-btn sahara-btn-lg"><i class="far fa-ticket-alt"></i> Submit RSVP</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div><form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="https://buy.stripe.com/your_actual_link_here" class="sahara-rsvp-form" id="rsvp-form">
+    
+    <input type="hidden" name="form-name" value="rsvp">
+    
+    <p style="display:none"><label>Don't fill this: <input name="bot-field"></label></p>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="firstName">First Name <span class="required">*</span></label>
+            <input type="text" id="firstName" name="first-name" class="form-control sahara-input" required placeholder="First Name">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="lastName">Last Name <span class="required">*</span></label>
+            <input type="text" id="lastName" name="last-name" class="form-control sahara-input" required placeholder="Last Name">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" class="form-control sahara-input" required placeholder="Email Address">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-control sahara-input" placeholder="Phone Number">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="company">Company / Brand</label>
+            <input type="text" id="company" name="company" class="form-control sahara-input" placeholder="Company or Brand Name">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="guests">Number of Guests <span class="required">*</span></label>
+            <select id="guests" name="guests" class="form-control sahara-input" required>
+                <option value="">Select</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5+ Guests</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="discount">Discount Code</label>
+            <input type="text" id="discount" name="discount-code" class="form-control sahara-input" placeholder="Enter discount code">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="role">Your Role</label>
+            <select id="role" name="role" class="form-control sahara-input">
+                <option value="">Select your role</option>
+                <option value="Influencer/Creator">Influencer / Creator</option>
+                <option value="Casino Executive">Casino Executive</option>
+                <option value="Sponsor/Brand">Sponsor / Brand</option>
+                <option value="Media/Press">Media / Press</option>
+                <option value="Industry Professional">Industry Professional</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mb-3">
+            <label for="message">Special Requests or Dietary Requirements</label>
+            <textarea id="message" name="message" class="form-control sahara-input" rows="3" placeholder="Any special requests..."></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center mt-3">
+            <button type="submit" class="btn sahara-btn sahara-btn-lg"><i class="far fa-ticket-alt"></i> Register & Pay</button>
+        </div>
+    </div>
+</form>
                                 <div id="rsvp-success" class="rsvp-success-message" style="display:none;">
                                     <div class="text-center">
                                         <i class="fas fa-check-circle"></i>
