@@ -553,7 +553,7 @@
                                         <span class="price-currency">$</span><span class="price-amount">1,000</span><span class="price-per"> / guest</span>
                                     </div>
                                     <p class="rsvp-note">Limited Availability. </p>
-                                </div><form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="https://buy.stripe.com/your_actual_link_here" class="sahara-rsvp-form" id="rsvp-form">
+                                </div><form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="sahara-rsvp-form" id="rsvp-form">
     
     <input type="hidden" name="form-name" value="rsvp">
     
@@ -745,6 +745,34 @@
             }
 
         })(jQuery);
-        </script>
+<script>
+  const rsvpForm = document.getElementById('rsvp-form');
+  
+  rsvpForm.addEventListener('submit', e => {
+    e.preventDefault(); // Stop the default refresh
+
+    const formData = new FormData(rsvpForm);
+    const discountCode = formData.get('discount-code');
+
+    // 1. Submit the data to Netlify first so you store the lead
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+    .then(() => {
+      // 2. Decide where to send them
+      if (discountCode === "Sahara100") {
+        // Hide form and show your "Thank You" div
+        rsvpForm.style.display = 'none';
+        document.getElementById('rsvp-success').style.display = 'block';
+      } else {
+        // Redirect to Stripe for payment
+        window.location.href = "https://buy.stripe.com/your_actual_link_here";
+      }
+    })
+    .catch((error) => alert("Submission error: " + error));
+  });
+</script>
     </body>
 </html>
