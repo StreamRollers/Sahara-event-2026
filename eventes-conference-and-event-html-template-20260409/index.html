@@ -704,61 +704,64 @@
         <script src="js/main.js"></script>
 
         <!-- Custom Event Scripts -->
-        <script>
+       <script>
         (function($) {
             'use strict';
 
-            // Image Rotator
+            // 1. Image Rotator Logic
             var rotatorImages = $('.rotator-img');
             var rotatorLabel = $('.rotator-label-text');
             var labels = ['Maroon by Kwame Onwuachi', 'The Pool at SAHARA Las Vegas'];
             var currentImg = 0;
 
-            function rotateImages() {
-                rotatorImages.eq(currentImg).removeClass('active');
-                currentImg = (currentImg + 1) % rotatorImages.length;
-                rotatorImages.eq(currentImg).addClass('active');
-                rotatorLabel.text(labels[currentImg]);
+            if (rotatorImages.length > 0) {
+                setInterval(function() {
+                    rotatorImages.eq(currentImg).removeClass('active');
+                    currentImg = (currentImg + 1) % rotatorImages.length;
+                    rotatorImages.eq(currentImg).addClass('active');
+                    rotatorLabel.text(labels[currentImg]);
+                }, 4000);
             }
-            setInterval(rotateImages, 4000);
 
-    const rsvpForm = document.getElementById('rsvp-form');
-    
-    if (rsvpForm) {
-      rsvpForm.addEventListener('submit', function(e) {
-        e.preventDefault(); 
+            // 2. Unified RSVP & Payment Logic
+            const rsvpForm = document.getElementById('rsvp-form');
+            if (rsvpForm) {
+                rsvpForm.addEventListener('submit', function(e) {
+                    e.preventDefault(); 
 
-        const formData = new FormData(rsvpForm);
-        const discountCode = formData.get('discount-code') ? formData.get('discount-code').trim().toUpperCase() : "";
+                    const formData = new FormData(rsvpForm);
+                    const discountCode = formData.get('discount-code') ? formData.get('discount-code').trim().toUpperCase() : "";
 
-        // 1. Send data to Netlify (this triggers your Zapier email)
-        fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(formData).toString(),
-        })
-        .then(() => {
-          // 2. Immediate Decision Logic
-          if (discountCode === "SAHARA100") {
-            // VIP Path: Show the on-page message
-            rsvpForm.style.display = 'none';
-            document.getElementById('rsvp-success').style.display = 'block';
-            document.getElementById('rsvp-success').scrollIntoView({ behavior: 'smooth' });
-          } else {
-            // Payment Path: Force the browser to Stripe
-            console.log("Success! Redirecting to Stripe...");
-            window.location.replace("https://buy.stripe.com/6oU14o1cNcl12QufM48IU00");
-          }
-        })
-        .catch(error => {
-          // Fallback: If Netlify fails, still try to send them to Stripe so you don't lose the sale
-          if (discountCode !== "SAHARA100") {
-            window.location.replace("https://buy.stripe.com/6oU14o1cNcl12QufM48IU00");
-          }
-        });
-      });
-    }
-  });
-</script>
+                    // 1. Send data to Netlify (triggers Zapier email)
+                    fetch("/", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        body: new URLSearchParams(formData).toString(),
+                    })
+                    .then(() => {
+                        // 2. Immediate Decision Logic
+                        if (discountCode === "SAHARA100") {
+                            // VIP Path: Show success message
+                            rsvpForm.style.display = 'none';
+                            if(document.querySelector('.rsvp-price-header')) {
+                                document.querySelector('.rsvp-price-header').style.display = 'none';
+                            }
+                            document.getElementById('rsvp-success').style.display = 'block';
+                            document.getElementById('rsvp-success').scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            // Payment Path: Redirect to Stripe
+                            window.location.replace("https://buy.stripe.com/6oU14o1cNcl12QufM48IU00");
+                        }
+                    })
+                    .catch(error => {
+                        // Fallback: Still try to send to Stripe so you don't lose the lead
+                        if (discountCode !== "SAHARA100") {
+                            window.location.replace("https://buy.stripe.com/6oU14o1cNcl12QufM48IU00");
+                        }
+                    });
+                });
+            }
+        })(jQuery); // This closes the function correctly
+        </script>
     </body>
 </html>
