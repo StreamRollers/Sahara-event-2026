@@ -748,31 +748,38 @@
 <script>
   const rsvpForm = document.getElementById('rsvp-form');
   
-  rsvpForm.addEventListener('submit', e => {
-    e.preventDefault(); // Stop the default refresh
+  if (rsvpForm) {
+    rsvpForm.addEventListener('submit', e => {
+      e.preventDefault(); 
 
-    const formData = new FormData(rsvpForm);
-    const discountCode = formData.get('discount-code');
+      const formData = new FormData(rsvpForm);
+      const discountCode = formData.get('discount-code');
 
-    // 1. Submit the data to Netlify first so you store the lead
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-    .then(() => {
-      // 2. Decide where to send them
-      if (discountCode === "Sahara100") {
-        // Hide form and show your "Thank You" div
-        rsvpForm.style.display = 'none';
-        document.getElementById('rsvp-success').style.display = 'block';
-      } else {
-        // Redirect to Stripe for payment
-        window.location.href = "https://buy.stripe.com/6oU14o1cNcl12QufM48IU00";
-      }
-    })
-    .catch((error) => alert("Submission error: " + error));
-  });
+      // 1. Submit the data to Netlify
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      })
+      .then(() => {
+        console.log("Netlify submission successful");
+        
+        // 2. Logic for Redirect vs. Success Message
+        if (discountCode === "Sahara100") {
+          // VIP Path
+          rsvpForm.style.display = 'none';
+          document.getElementById('rsvp-success').style.display = 'block';
+        } else {
+          // Payment Path - Ensure this link is your EXACT Stripe URL
+          window.location.href = "https://buy.stripe.com/6oU14o1cNcl12QufM48IU00";
+        }
+      })
+      .catch((error) => {
+        console.error("Form submission error:", error);
+        alert("There was an issue submitting your RSVP. Please try again.");
+      });
+    });
+  }
 </script>
     </body>
 </html>
