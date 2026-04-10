@@ -721,29 +721,7 @@
                 rotatorLabel.text(labels[currentImg]);
             }
             setInterval(rotateImages, 4000);
-
-            // RSVP Form AJAX submission
-            var rsvpForm = document.getElementById('rsvp-form');
-            if (rsvpForm) {
-                rsvpForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    var formData = new FormData(rsvpForm);
-                    fetch('/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: new URLSearchParams(formData).toString()
-                    }).then(function(response) {
-                        if (response.ok) {
-                            document.getElementById('rsvp-form').style.display = 'none';
-                            document.querySelector('.rsvp-price-header').style.display = 'none';
-                            document.getElementById('rsvp-success').style.display = 'block';
-                        }
-                    }).catch(function(error) {
-                        alert('There was an issue submitting your RSVP. Please try again.');
-                    });
-                });
-            }
-
+        
         })(jQuery);
 <script>
   document.addEventListener('DOMContentLoaded', function() {
