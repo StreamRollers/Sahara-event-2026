@@ -746,40 +746,44 @@
 
         })(jQuery);
 <script>
-  const rsvpForm = document.getElementById('rsvp-form');
-  
-  if (rsvpForm) {
-    rsvpForm.addEventListener('submit', e => {
-      e.preventDefault(); 
+  document.addEventListener('DOMContentLoaded', function() {
+    const rsvpForm = document.getElementById('rsvp-form');
+    
+    if (rsvpForm) {
+      rsvpForm.addEventListener('submit', function(e) {
+        e.preventDefault(); 
 
-      const formData = new FormData(rsvpForm);
-      const discountCode = formData.get('discount-code');
+        const formData = new FormData(rsvpForm);
+        const discountCode = formData.get('discount-code') ? formData.get('discount-code').trim().toUpperCase() : "";
 
-      // 1. Submit the data to Netlify
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
-      })
-      .then(() => {
-        console.log("Netlify submission successful");
-        
-        // 2. Logic for Redirect vs. Success Message
-        if (discountCode === "Sahara100") {
-          // VIP Path
-          rsvpForm.style.display = 'none';
-          document.getElementById('rsvp-success').style.display = 'block';
-        } else {
-          // Payment Path - Ensure this link is your EXACT Stripe URL
-          window.location.href = "https://buy.stripe.com/6oU14o1cNcl12QufM48IU00";
-        }
-      })
-      .catch((error) => {
-        console.error("Form submission error:", error);
-        alert("There was an issue submitting your RSVP. Please try again.");
+        // 1. Send data to Netlify (this triggers your Zapier email)
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString(),
+        })
+        .then(() => {
+          // 2. Immediate Decision Logic
+          if (discountCode === "SAHARA100") {
+            // VIP Path: Show the on-page message
+            rsvpForm.style.display = 'none';
+            document.getElementById('rsvp-success').style.display = 'block';
+            document.getElementById('rsvp-success').scrollIntoView({ behavior: 'smooth' });
+          } else {
+            // Payment Path: Force the browser to Stripe
+            console.log("Success! Redirecting to Stripe...");
+            window.location.replace("https://buy.stripe.com/6oU14o1cNcl12QufM48IU00");
+          }
+        })
+        .catch(error => {
+          // Fallback: If Netlify fails, still try to send them to Stripe so you don't lose the sale
+          if (discountCode !== "SAHARA100") {
+            window.location.replace("https://buy.stripe.com/6oU14o1cNcl12QufM48IU00");
+          }
+        });
       });
-    });
-  }
+    }
+  });
 </script>
     </body>
 </html>
