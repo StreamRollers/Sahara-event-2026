@@ -1144,3 +1144,36 @@ i.fas, i.far, i.fab {
     color: #ffffff !important;
     text-decoration: underline;
 }
+
+/* Force Backgrounds to Solid Black for all main sections */
+#about, 
+#presenter, 
+#venue, 
+#experience, 
+#rsvp,
+.sahara-about-area,
+.sahara-presenter-area,
+.sahara-venue-area,
+.sahara-experience-area,
+.sahara-rsvp-area {
+    background-color: #000000 !important;
+    background: #000000 !important;
+}
+
+/* Fix for sections that might use a background image with an overlay */
+.sahara-details-overlay,
+.sahara-winners-bg {
+    background-color: rgba(0, 0, 0, 0.9) !important; /* Makes image overlays darker */
+}
+
+/* Ensure the RSVP card itself matches the black background */
+.sahara-rsvp-card {
+    background-color: #111111 !important; /* Slightly lighter black to create a 'card' depth */
+    border: 1px solid #222222 !important;
+}
+
+/* Fix for any 'wave' or separator images that might be navy blue */
+.sahara-about-area::before, 
+.sahara-about-area::after {
+    display: none !important;
+}
