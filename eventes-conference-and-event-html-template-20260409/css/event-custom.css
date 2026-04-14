@@ -994,3 +994,23 @@ select.sahara-input option {
     border-color: #99e673 !important;
     color: #000000 !important;
 }
+
+/* FORCE HEADER TO PURE BLACK */
+header, 
+.header-area, 
+.menu-area, 
+.sahara-header, 
+#header-sticky, 
+.sticky-menu,
+.navbar-area {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    border-bottom: 1px solid #1a1a1a !important; /* Adds a very subtle separator */
+}
+
+/* Fix for mobile menu background */
+.mean-container .mean-nav, 
+.mobile-menu, 
+.side-menu-info {
+    background-color: #000000 !important;
+}
