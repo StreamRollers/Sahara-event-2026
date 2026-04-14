@@ -1104,3 +1104,43 @@ i.fas, i.far, i.fab {
 .feature-icon, .convergence-icon {
     background-color: #B2FF8A !important; /* Logo Green background for the circle */
 }
+
+/* 1. Icon Backgrounds (Experience & Inflection Point) */
+.feature-icon, 
+.convergence-icon {
+    background-color: #B2FF8A !important; /* Circle goes green */
+    background: #B2FF8A !important;
+}
+
+/* 2. Top Hero Section Icons (The checkmarks or detail icons) */
+.hero-details li i,
+.hero-cta i {
+    color: #B2FF8A !important;
+}
+
+/* 3. Professional Titles & Labels (Presenter & Winners) */
+.presenter-title,
+.winner-info p {
+    color: #B2FF8A !important;
+}
+
+/* 4. RSVP Form Styling (Headers, Currency, and Required Marks) */
+.rsvp-label,
+.price-currency,
+.price-amount,
+.required {
+    color: #B2FF8A !important;
+}
+
+/* 5. Footer Accents (The X, Email Icon, and Link) */
+.footer-logo-divider,
+.footer-social a i,
+.footer-contact a {
+    color: #B2FF8A !important;
+}
+
+/* Ensure the email link doesn't turn blue on hover */
+.footer-contact a:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
