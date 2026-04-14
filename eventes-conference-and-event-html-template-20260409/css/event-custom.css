@@ -1052,3 +1052,42 @@ header,
     background: #99e673 !important;
     border-color: #99e673 !important;
 }
+
+/* 1. Header Menu Items (Home, About, etc.) */
+.main-menu ul li a, 
+.main-menu ul li.active a {
+    color: #ffffff !important; /* Keep main text white */
+}
+
+.main-menu ul li.active a, 
+.main-menu ul li:hover a {
+    color: #B2FF8A !important; /* Change active/hover state to Green */
+}
+
+/* 2. Section Tags & Accents (STREAMROLLERS, THE EVENING, KEYNOTE, etc.) */
+.hero-pre-title, 
+.logo-divider, 
+.sahara-section-tag, 
+.about-title span, 
+.sahara-title span,
+.presenter-badge span {
+    color: #B2FF8A !important;
+}
+
+/* 3. Stats & Gold Numbers in ABOUT Section */
+.stat-number.gold-text, 
+.stat-card h2, 
+.gold-text {
+    color: #B2FF8A !important;
+}
+
+/* 4. Font-Awesome Icons (Checkmarks, etc.) */
+i.fas, i.far, i.fab {
+    /* Only targets icons that were likely gold by default */
+    color: inherit; 
+}
+.sahara-check-list li i, 
+.feature-icon i,
+.venue-detail-card i {
+    color: #B2FF8A !important;
+}
