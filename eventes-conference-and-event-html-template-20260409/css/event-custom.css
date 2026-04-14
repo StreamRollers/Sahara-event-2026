@@ -1014,3 +1014,16 @@ header,
 .side-menu-info {
     background-color: #000000 !important;
 }
+
+/* Force the footer to solid black and remove the navy gradient */
+.sahara-footer, 
+.footer-top, 
+.footer-bottom {
+    background: #000000 !important;
+    background-color: #000000 !important;
+}
+
+/* Remove any top borders or lines that might look blueish */
+.footer-top {
+    border-top: none !important;
+}
