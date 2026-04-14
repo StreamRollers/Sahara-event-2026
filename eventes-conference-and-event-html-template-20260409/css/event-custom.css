@@ -1206,3 +1206,31 @@ i.fas, i.far, i.fab {
 .sahara-check-list li i {
     color: #B2FF8A !important;
 }
+
+/* 1. Width of the scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* 2. Background of the scrollbar path (Track) */
+::-webkit-scrollbar-track {
+    background: #000000; /* Keeping it black to match your new theme */
+}
+
+/* 3. The moving part of the scrollbar (Thumb) */
+::-webkit-scrollbar-thumb {
+    background: #B2FF8A; /* Logo Green */
+    border-radius: 6px;
+    border: 3px solid #000000; /* Adds a black border around the green for a sleek look */
+}
+
+/* 4. Hover state for the thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: #99e673; /* Slightly darker green on hover */
+}
+
+/* Firefox Support */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #B2FF8A #000000;
+}
