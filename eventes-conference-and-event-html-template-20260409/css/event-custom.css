@@ -1234,3 +1234,9 @@ i.fas, i.far, i.fab {
     scrollbar-width: thin;
     scrollbar-color: #B2FF8A #000000;
 }
+
+/* Ensure the "Top 100" group photo is never cropped */
+.rotator-img[src*="Top100"] {
+    object-fit: contain !important;
+    background-color: #000000; /* Fills the sides with black to match the site */
+}
