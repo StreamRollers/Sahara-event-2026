@@ -1179,3 +1179,30 @@ i.fas, i.far, i.fab {
 .sahara-about-area::after {
     display: none !important;
 }
+
+/* 1. Force Winners background to black */
+#winners, 
+.sahara-winners-area, 
+.sahara-winners-bg {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    background-image: none !important; /* Removes any background pattern or image */
+}
+
+/* 2. Force Positioning (Branding & PR) background to black */
+.sahara-branding-area {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    /* This overrides the linear-gradient(135deg, #0a1628 0%, #1a0a14 100%) in your HTML */
+}
+
+/* 3. Cleanup: Ensure Winner Cards don't have blue borders */
+.winner-card {
+    background: #111111 !important;
+    border: 1px solid #222222 !important;
+}
+
+/* 4. Ensure the checkmarks in the Positioning section are Green */
+.sahara-check-list li i {
+    color: #B2FF8A !important;
+}
