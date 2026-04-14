@@ -968,3 +968,41 @@ select.sahara-input option {
 .sahara-event-body #scrollUp:hover {
     background: var(--sahara-gold-light);
 }
+
+/* Update RSVP and Action buttons to match the logo green */
+.btn.sahara-btn, 
+.header-btn .sahara-btn, 
+.hero-cta .sahara-btn,
+.sahara-rsvp-form .btn.sahara-btn {
+    background-color: #B2FF8A !important;
+    border-color: #B2FF8A !important;
+    color: #000000 !important; /* Black text for better contrast */
+    font-weight: 700;
+}
+
+/* Hover state: slightly darker green */
+.btn.sahara-btn:hover, 
+.header-btn .sahara-btn:hover, 
+.hero-cta .sahara-btn:hover,
+.sahara-rsvp-form .btn.sahara-btn:hover {
+    background-color: #98e672 !important;
+    border-color: #98e672 !important;
+    color: #000000 !important;
+}
+
+/* Update the outlined "Learn More" button to match */
+.btn.sahara-btn-outline {
+    border-color: #B2FF8A !important;
+    color: #B2FF8A !important;
+}
+
+.btn.sahara-btn-outline:hover {
+    background-color: #B2FF8A !important;
+    color: #000000 !important;
+}
+
+/* Optional: Update the "1M+" stats numbers to match the logo green */
+.stat-number.gold-text {
+    color: #B2FF8A !important;
+}
+"Update branding to StreamRollers Green"
