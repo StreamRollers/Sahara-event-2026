@@ -1027,3 +1027,28 @@ header,
 .footer-top {
     border-top: none !important;
 }
+
+/* Change Back to Top button background to logo green */
+#scrollUp, 
+.scroll-up, 
+#scroll-top {
+    background-color: #B2FF8A !important;
+    background: #B2FF8A !important;
+    border-color: #B2FF8A !important;
+}
+
+/* Change the arrow icon inside to black for better contrast */
+#scrollUp i, 
+.scroll-up i, 
+#scroll-top i {
+    color: #000000 !important;
+}
+
+/* Hover state: slightly darker green */
+#scrollUp:hover, 
+.scroll-up:hover, 
+#scroll-top:hover {
+    background-color: #99e673 !important;
+    background: #99e673 !important;
+    border-color: #99e673 !important;
+}
