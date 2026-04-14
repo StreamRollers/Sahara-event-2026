@@ -1147,12 +1147,14 @@ i.fas, i.far, i.fab {
 
 /* Force Backgrounds to Solid Black for all main sections */
 #about, 
-#presenter, 
+#presenter,
+#winners,
 #venue, 
 #experience, 
 #rsvp,
 .sahara-about-area,
 .sahara-presenter-area,
+.sahara-winners-area,
 .sahara-venue-area,
 .sahara-experience-area,
 .sahara-rsvp-area {
