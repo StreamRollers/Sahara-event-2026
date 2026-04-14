@@ -968,3 +968,29 @@ select.sahara-input option {
 .sahara-event-body #scrollUp:hover {
     background: var(--sahara-gold-light);
 }
+
+/* FORCE GREEN ON ALL RSVP BUTTONS */
+.btn.sahara-btn, 
+.sahara-btn,
+.hero-cta .btn,
+.header-btn .btn,
+#rsvp-form button[type="submit"] {
+    background: #B2FF8A !important; /* This is your logo green */
+    background-color: #B2FF8A !important;
+    border-color: #B2FF8A !important;
+    color: #000000 !important; /* Black text for readability */
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+/* Ensure the hover state doesn't turn back to gold */
+.btn.sahara-btn:hover, 
+.sahara-btn:hover,
+.hero-cta .btn:hover,
+.header-btn .btn:hover,
+#rsvp-form button[type="submit"]:hover {
+    background: #99e673 !important; /* Slightly darker green for hover */
+    background-color: #99e673 !important;
+    border-color: #99e673 !important;
+    color: #000000 !important;
+}
