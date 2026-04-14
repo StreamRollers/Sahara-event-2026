@@ -1091,3 +1091,16 @@ i.fas, i.far, i.fab {
 .venue-detail-card i {
     color: #B2FF8A !important;
 }
+
+/* Keep icons black in the Experience and Inflection Point sections */
+.sahara-feature-card .feature-icon i,
+.convergence-card .convergence-icon i,
+.convergence-card .convergence-icon img {
+    color: #000000 !important;
+    filter: brightness(0) !important; /* Forces images/icons to pure black */
+}
+
+/* Optional: Ensure the background circle for these icons stays Green or White */
+.feature-icon, .convergence-icon {
+    background-color: #B2FF8A !important; /* Logo Green background for the circle */
+}
