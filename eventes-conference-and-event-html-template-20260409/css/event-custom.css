@@ -1235,8 +1235,8 @@ i.fas, i.far, i.fab {
     scrollbar-color: #B2FF8A #000000;
 }
 
-/* Ensure the "Top 100" group photo is never cropped */
-.rotator-img[src*="Top100"] {
+/* Ensure the "Visionaries" group photo is never cropped */
+.rotator-img[src*="Visionaries"] {
     object-fit: contain !important;
     background-color: #000000; /* Fills the sides with black to match the site */
 }
