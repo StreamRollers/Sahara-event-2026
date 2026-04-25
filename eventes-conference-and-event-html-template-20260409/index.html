@@ -536,41 +536,34 @@
                 }, 4000);
             }
 
-            // 2. Unified RSVP & Payment Logic
+// 2. Simple Waitlist Data Capture
             const rsvpForm = document.getElementById('rsvp-form');
             if (rsvpForm) {
                 rsvpForm.addEventListener('submit', function(e) {
                     e.preventDefault(); 
 
                     const formData = new FormData(rsvpForm);
-                    const discountCode = formData.get('discount-code') ? formData.get('discount-code').trim().toUpperCase() : "";
 
-                    // 1. Send data to Netlify (triggers Zapier email)
+                    // Send data to Netlify (notifies awards@streamrollers.com)
                     fetch("/", {
                         method: "POST",
                         headers: { "Content-Type": "application/x-www-form-urlencoded" },
                         body: new URLSearchParams(formData).toString(),
                     })
                     .then(() => {
-                        // 2. Immediate Decision Logic
-                        if (discountCode === "SAHARA100") {
-                            // VIP Path: Show success message
-                            rsvpForm.style.display = 'none';
-                            if(document.querySelector('.rsvp-price-header')) {
-                                document.querySelector('.rsvp-price-header').style.display = 'none';
-                            }
-                            document.getElementById('rsvp-success').style.display = 'block';
-                            document.getElementById('rsvp-success').scrollIntoView({ behavior: 'smooth' });
-                        } else {
-                            // Payment Path: Redirect to Stripe
-                            window.location.replace("https://buy.stripe.com/6oU14o1cNcl12QufM48IU00");
+                        // Success: Show the "Thank You" message instead of going to Stripe
+                        rsvpForm.style.display = 'none';
+                        if(document.querySelector('.rsvp-price-header')) {
+                            document.querySelector('.rsvp-price-header').style.display = 'none';
                         }
+                        document.getElementById('rsvp-success').style.display = 'block';
+                        document.getElementById('rsvp-success').scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Update the success message text to mention the waitlist
+                        document.querySelector('#rsvp-success p').innerText = "Your details have been added to our waitlist. Jack will contact you if a seat becomes available.";
                     })
                     .catch(error => {
-                        // Fallback: Still try to send to Stripe so you don't lose the lead
-                        if (discountCode !== "SAHARA100") {
-                            window.location.replace("https://buy.stripe.com/6oU14o1cNcl12QufM48IU00");
-                        }
+                        alert("There was an error. Please email Awards@StreamRollers.com directly.");
                     });
                 });
             }
