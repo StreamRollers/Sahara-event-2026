@@ -1271,3 +1271,17 @@ i.fas, i.far, i.fab {
     object-fit: cover; /* This prevents stretching/distortion */
     display: block;
 }
+/* Fix for Video Controls and Distortion */
+.video-grid-content {
+    width: 100% !important;
+    height: auto !important; /* Let the 16/9 ratio dictate the height */
+    object-fit: contain !important; /* Ensures no part of George is cut off */
+    background: #000;
+}
+
+/* Ensure the presenter image (George) also stays in proportion */
+.presenter-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; 
+}
