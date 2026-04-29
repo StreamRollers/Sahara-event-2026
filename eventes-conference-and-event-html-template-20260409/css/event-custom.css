@@ -1240,3 +1240,26 @@ i.fas, i.far, i.fab {
     object-fit: contain !important;
     background-color: #000000; /* Fills the sides with black to match the site */
 }
+/* --- New Video Grid Styles --- */
+.hero-video-grid {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-top: 20px; /* Adds clean spacing below the photo rotator */
+}
+
+.video-grid-content {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.hero-video-grid .rotator-label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+}
