@@ -1263,3 +1263,11 @@ i.fas, i.far, i.fab {
     width: 100%;
     z-index: 2;
 }
+
+/* Fix for distorted presenter and venue images */
+.presenter-img, .venue-img, .video-grid-content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This prevents stretching/distortion */
+    display: block;
+}
